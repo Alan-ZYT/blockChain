@@ -6,3 +6,4 @@ Golang Language implementation of blockchain.
 
 
 # computational results
+![blockChain-v1_run.png](https://github.com/Alan-ZYT/blockChain/blob/master/blockChain-v1_run.png?raw=true)
