@@ -8,14 +8,13 @@ import (
 //打印区块链
 func main() {
 	bc := NewBlockChain()
-
 	//变量区块数据
 	time.Sleep(1 * time.Second)
 
-	bc.AddBlock("20190626号BTC暴涨10.5%")
+	bc.AddBlock("26号btc暴涨20%")
 	time.Sleep(1 * time.Second)
 
-	bc.AddBlock("20190627号BTC暴涨12.8%")
+	bc.AddBlock("27号btc暴涨10%")
 	time.Sleep(1 * time.Second)
 
 	for i, block := range bc.Blocks {
@@ -28,5 +27,8 @@ func main() {
 		fmt.Printf("Nonce : %d\n", block.Nonce)
 		fmt.Printf("Hash : %x\n", block.Hash)
 		fmt.Printf("Data : %s\n", block.Data)
+
+		pow := NewProofOfWork(block)
+		fmt.Printf("IsValid: %v\n", pow.IsValid())
 	}
 }

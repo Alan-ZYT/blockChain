@@ -21,19 +21,17 @@ func NewBlockChain() *BlockChain {
 }
 
 //提供一个向区块链中添加区块的方法
+//参数：数据，不需要提供前区块的哈希值，因为bc可以通过自己的下标拿到
 func (bc *BlockChain) AddBlock(data string) {
-	//参数: 数据,不需要提供前区块的哈希值,因为bc可以通过自己的下标拿到数据
+	//通过下标，得到最后一个区块
+	lastBlock := bc.Blocks[len(bc.Blocks)-1]
 
-	//通过下标,得到最后一个区块
-	lastBlcok := bc.Blocks[len(bc.Blocks)-1]
-
-	//最后一个区块哈希值是新区快的前哈希
-	prevHash := lastBlcok.Hash
+	//最后一个区块哈希值是新区块的前哈希
+	prevHash := lastBlock.Hash
 
 	//创建block
-	newBlock := NewBlock(data, prevHash)
+	newBlcok := NewBlock(data, prevHash)
 
 	//添加bc中
-	bc.Blocks = append(bc.Blocks, newBlock)
-
+	bc.Blocks = append(bc.Blocks, newBlcok)
 }
